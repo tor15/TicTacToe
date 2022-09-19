@@ -1,18 +1,18 @@
-// TicTacToe.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// TicTacToe console app
 
 #include <iostream>
 
 char board[3][3] = { {'1','2','3'},{'4','5','6'},{'7','8','9'} };    // Array for the board
 
-void displayBoard();                            // display the tictactoe board
-int playerTurn(int player);                      // returns players choice of square
-void updateBoard(int choice, int player);     // update the board with players choice
-bool checkForWin();                              // check array for 3 in a row - winner - return true if winner
-bool checkIfSquareTaken(int square);                      // returns true if square chosen already has X or O in it
+void displayBoard();                                // display the tictactoe board
+int playerTurn(int player);                         // returns players choice of square
+void updateBoard(int choice, int player);           // update the board with players choice
+bool checkForWin();                                 // check array for 3 in a row - winner - return true if winner
+bool checkIfSquareTaken(int square);                // returns true if square chosen already has X or O in it
 
 int main()
 {
-    displayBoard();     // set out the board for the players to see
+    displayBoard();             // set out the board for the players to see
 
     int playerNumber{ 1 };      // 2 players - player 1 and player 2 - set to player 1
     int playerChoice;           // square on the board chosen by the player - 1 to 9
@@ -21,9 +21,9 @@ int main()
     // keep playing the game until a win or a draw when gameOver is 10
     while (gameOver < 10)
     {
-        playerChoice = playerTurn(playerNumber);    // takes turn and returns new player number
+        playerChoice = playerTurn(playerNumber);        // takes turn and returns new player number
         updateBoard(playerChoice, playerNumber);        // update the board with player choice
-        displayBoard();                             // display the board with the new move
+        displayBoard();                                 // display the board with the new move
         
         // check if there is a winner after the last move and display winner and end game if there is
         if (checkForWin())
@@ -56,6 +56,7 @@ void displayBoard()
     std::cout << "\t\t     |     |     \n";
 }
 
+// return square number on board chosen by player in player (1 or 2)
 int playerTurn(int player)
 {
     int choice{ 0 };       // set square choice to 1 to make while loop true
@@ -72,6 +73,8 @@ int playerTurn(int player)
     return choice;
 }
 
+// update the board with a X or 0 if player 1 or 2
+// and with choice giving the square number 
 void updateBoard(int choice, int player)
 {
     int row, column;        // row and column for the board
@@ -98,6 +101,8 @@ void updateBoard(int choice, int player)
         board[row][column] = 'O';
 }
 
+// check the board for 3 of a kind in a row - winner!
+// return true if winner
 bool checkForWin()
 {
     // check the rows and columns for 3 of a kind
@@ -110,6 +115,8 @@ bool checkForWin()
     return false;
 }
 
+// check the board to make sure square chosen has not already been taken
+// return true if already taken
 bool checkIfSquareTaken(int square)
 {
     int row, column;
