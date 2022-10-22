@@ -1,4 +1,5 @@
 // TicTacToe console app
+// new comment in branch Module B
 
 #include <iostream>
 
@@ -9,6 +10,9 @@ int playerTurn(int player);                         // returns players choice of
 void updateBoard(int choice, int player);           // update the board with players choice
 bool checkForWin();                                 // check array for 3 in a row - winner - return true if winner
 bool checkIfSquareTaken(int square);                // returns true if square chosen already has X or O in it
+
+// new unused variable for branch test of Module B
+int test = 0;
 
 int main()
 {
